@@ -1,0 +1,872 @@
+@import './fonts.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(87, 87, 235, 0.06) transparent; 
+}
+
+body {
+  background-color: rgba(255, 254, 247, 1);
+  font-family: "Mulish", sans-serif;
+}
+
+.container-fluid.no-margin {
+  margin: 0 !important;
+}
+
+.container-fluid.no-padding {
+  padding: 0 !important;
+}
+
+header {
+  color: #fff;
+  background-color: rgba(141, 143, 254, 1);
+  border-radius: 0px 0px 60px 60px;
+  padding: 1.9em 6.3em;
+  font-size: 1.09em;
+  font-weight: bold;
+  margin-bottom: 3.375em;
+}
+
+header h3 {
+  font-size: 1.09em;
+  font-weight: bold;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .links {
+  display: flex;
+  justify-content: space-between;
+  width: 14.3em;
+}
+
+header a {
+  text-decoration: none;
+  color: #fff;
+  opacity: 50%;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+header a:hover {
+  opacity: 0.75;
+}
+
+header a.active {
+  opacity: 100%;
+}
+
+.wrapper {
+  max-width: 84%;
+  margin: 0 auto;
+}
+
+.wrapper-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.category-button {
+  border: none;
+  border-radius: 6px;
+  padding: 0.5em 1.5em;
+  background-color: rgba(87, 87, 235, 0.06);
+  font-weight: 300;
+  font-size: 1.125em;
+  cursor: pointer;
+  margin-right: 1.5em;
+  transition: 0.5s;
+}
+
+.category-button.active {
+  background-color: rgba(87, 87, 235, 1);
+  color: #fff;
+}
+
+.completed label {
+  opacity: 50%;
+}
+
+.add-button {
+  border: none;
+  border-radius: 12px 0px 12px 12px;
+  height: 3.125em;
+  padding: 1em 0.938em;
+  background-color: rgba(236, 117, 136, 1);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.add-button img {
+  vertical-align: baseline;
+}
+
+.add-button:hover {
+  background-color: rgb(231, 96, 119);
+}
+
+.add-button:active {
+  background-color: rgb(231, 96, 119);
+}
+
+hr {
+  height: 3px;
+  color: rgba(0, 0, 0, 0.4);
+  display: block;
+  width: 100%;
+}
+
+.category-options-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-bottom: 1.3em;
+}
+
+.category-options-line h3 {
+  font-size: 1.5em;
+}
+
+.categories-line h3 {
+  font-size: 1.5em;
+}
+
+.category-option {
+  font-size: 1.5em;
+  margin-bottom: 1.3em;
+}
+
+.show-options-button {
+  background-color: transparent;
+  border: none;
+  font-size: 2em;
+  color: rgba(87, 87, 235, 0.25);
+  transition: 0.5s;
+  align-items: center;
+  margin-top: -1.5em;
+}
+
+.show-options-button:hover {
+  color: rgba(87, 87, 235, 1);
+}
+
+.show-options-button:active {
+  color: rgba(87, 87, 235, 1);
+}
+
+.options-buttons {
+  position: absolute;
+  top: 90%;
+  right: 3%;
+  justify-content: flex-end;
+  background-color: #fff;
+  padding: 0.5em;
+  border-radius: 25px 0px 25px 25px;
+  font-size: 1.125em;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+}
+
+.options-buttons button {
+  display: block;
+  margin: 1em 3em;
+  border: none;
+  background-color: transparent;
+  transition: 0.5s;
+}
+
+.options-buttons button:hover {
+  color: rgba(87, 87, 235, 1);
+}
+
+.options-buttons button:active {
+  color: rgba(87, 87, 235, 1);
+}
+
+.empty-list {
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 1.125em;
+  text-align: center;
+  margin-top: 16vh;
+}
+
+.note-body {
+  margin-bottom: 1em;
+}
+
+.note-month {
+  display: block;
+  width: 100%;
+  font-size: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.note-time p {
+  font-size: 1.125em;
+  color: rgba(0, 0, 0, 0.25);
+  vertical-align: middle;
+  margin-bottom: 0;
+}
+
+.note .note-theme,
+.note .note-text {
+  background-color: rgba(87, 87, 235, 0.06);
+  font-size: 1.125em;
+  margin-bottom: 1.188em;
+  border-radius: 6px;
+  padding: 0.688em 1.188em;
+}
+
+.note-modal input,
+.note-modal textarea {
+  outline: none;
+  display: block;
+  width: 24em;
+  background-color: rgba(87, 87, 235, 0.06);
+  font-size: 1.125em;
+  border-radius: 6px;
+  padding: 0.688em 1.188em;
+  border: none;
+  resize: none;
+  margin-bottom: 1em;
+}
+
+.note-modal textarea {
+  height: 8.75em;
+}
+
+.todo label,
+.note-modal label {
+  font-size: 1.125em;
+  vertical-align: middle;
+}
+
+.todo input {
+  margin-right: 1em;
+}
+
+.todo-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 1.125em;
+}
+
+.todo-checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: rgba(87, 87, 235, 0.06);
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+.todo-checkbox input[type="checkbox"]:checked {
+  background-color: rgba(87, 87, 235, 1);
+}
+
+.todo-checkbox input[type="checkbox"]::before {
+  content: "✔";
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.todo-checkbox input[type="checkbox"]:checked::before {
+  display: block;
+}
+
+.todo,
+.note-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.todo {
+  margin-bottom: 1.9375em;
+}
+
+.todo-buttons,
+.note-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.todo-buttons:first-child {
+  margin-right: 2em;
+}
+
+.trash-can,
+.pen,
+.bookmark,
+.rotate-left {
+  font-size: 1.5em;
+  color: rgba(0, 0, 0, 0.25);
+  margin-left: 1em;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.trash-can:hover,
+.pen:hover,
+.bookmark:hover,
+.rotate-left:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.trash-can:active,
+.pen:active,
+.bookmark:active,
+.rotate-left:active {
+  color: rgba(0, 0, 0, 1);
+}
+
+.bookmark.important {
+  color: rgba(244, 187, 15, 1);
+}
+
+.modal-content .modal-bookmark {
+  position: fixed;
+  top: 0;
+  margin-top: 6em;
+  right: 6%;
+  width: 1.3em;
+  height: 1.3em;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.25);
+  transition: 0.5s;
+}
+
+.modal-bookmark.important {
+  color: rgba(244, 187, 15, 1);
+}
+
+.icon {
+  cursor: pointer;
+  margin-left: 1em;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  padding: 1.9375em;
+  width: 30em;
+}
+
+.modal-content .add-modal-button {
+  border-radius: 40px;
+  background-color: rgba(87, 87, 235, 1);
+  color: #fff;
+  padding: 0.431em 5.25em;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.125em;
+  font-weight: lighter;
+  border: none;
+  display: block;
+  margin: 1.7em auto 0.5em auto;
+  transition: 0.5s;
+}
+.modal-content .add-modal-button:hover {
+  background-color: rgba(141, 143, 254, 1);
+}
+
+.modal-content h3 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.13em;
+  margin: 0.01em 0 1.5em 0;
+  padding: 0;
+  line-height: 22.59px;
+}
+
+.modal-content p {
+  text-align: center;
+}
+
+.modal-content .modal-xmark {
+  position: fixed;
+  top: 0;
+  margin-top: 2em;
+  right: 6%;
+  width: 1.3em;
+  height: 1.3em;
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.modal-content:not(.note-modal) textarea {
+  border: none;
+  outline: none;
+  display: block;
+  width: 24em;
+  color: #000;
+  padding: 5px;
+  line-height: 2em;
+  font-size: 1.125em;
+  background: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.25) 0 0.08em,
+      transparent 0.08em 2em
+    )
+    0 2em / 100% content-box no-repeat;
+  overflow: hidden;
+  font-family: "Mulish", sans-serif;
+  cursor: text;
+  resize: none;
+}
+
+.modal-content textarea::placeholder,
+.modal-content input::placeholder {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.modal-content .textarea-add,
+.modal-content .textarea-edit {
+  height: 14em;
+}
+.modal-content:not(.note-modal) textarea:focus {
+  border: none;
+  outline: none;
+}
+
+.modal-warning-text {
+  text-align: center;
+  width: 18.125em;
+  font-size: 1.125em;
+}
+
+.warning-text {
+  opacity: 50%;
+  font-size: 1.125em;
+}
+
+.answer-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.answer-buttons button {
+  border-radius: 40px;
+  padding: 0.431em 2.25em;
+  cursor: pointer;
+  border: none;
+  margin: 1.7em 1em 0.5em 1em;
+  transition: 0.5s;
+}
+
+.answer-buttons button:first-of-type {
+  background-color: rgba(87, 87, 235, 1);
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.125em;
+}
+
+.answer-buttons button:last-of-type {
+  color: rgba(87, 87, 235, 1);
+  border: 1px rgba(87, 87, 235, 1) solid;
+  background-color: transparent;
+  font-weight: 400;
+  font-size: 1.125em;
+}
+
+.answer-buttons button:first-of-type:hover {
+  background-color: rgba(141, 143, 254, 1);
+}
+
+.answer-buttons button:last-of-type:hover {
+  color: rgba(141, 143, 254, 1);
+  border: 1px rgba(141, 143, 254, 1) solid;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 999;
+}
+@media screen and (max-width: 1038px) {
+  .category-buttons::-webkit-scrollbar {
+    width: 0.1em;
+    height: 0.5em; 
+  }
+  .category-buttons::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  .category-buttons::-webkit-scrollbar-thumb {
+    background-color: rgba(87, 87, 235, 0.06); 
+    border-radius: 20px; 
+  }
+  .category-buttons {
+    border-radius: 6px;
+    width: 90%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    align-items: baseline;
+    scrollbar-width: thin; /* Для Firefox */
+    scrollbar-color: rgba(87, 87, 235, 0.06) transparent; /* Для Firefox */
+  }
+  .category-button {
+    white-space: nowrap;
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 758px) {
+  header {
+    padding: 1.7em 4.8em;
+    font-size: 1em;
+    margin-bottom: 3.175em;
+  }
+
+  header nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header ul {
+    display: flex;
+    justify-content: space-between;
+    width: 14.4em;
+  }
+
+  .note-modal input,
+  .note-modal textarea {
+    width: 23em;
+    font-size: 1em;
+  }
+
+  .trash-can,
+  .pen,
+  .bookmark,
+  .rotate-left {
+    font-size: 1.2em;
+    margin-left: 0.5em;
+  }
+
+  .todo-checkbox input[type="checkbox"] {
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  .todo-checkbox {
+    font-size: 1em;
+  }
+
+  .modal-content {
+    padding: 1.7375em;
+    width: 26em;
+  }
+
+  .modal-content:not(.note-modal) textarea {
+    width: 23em;
+    padding: 5px;
+    font-size: 1em;
+  }
+  .modal-content h3 {
+    font-size: 1.1em;
+  }
+
+  .modal-content .add-modal-button {
+    font-size: 1em;
+  }
+
+  .modal-content .modal-bookmark {
+    margin-top: 5.5em;
+    right: 12%;
+  }
+
+  .answer-buttons button:first-of-type,
+  .answer-buttons button:last-of-type {
+    font-size: 1em;
+  }
+  .options-buttons {
+    top: 75%;
+    right: 2%;
+    padding: 0.3em;
+    border-radius: 22px 0px 22px 22px;
+  }
+  .warning-text {
+    font-size: 1em;
+  }
+  .modal-content .modal-bookmark {
+    margin-top: 5.5em;
+    right: 7%;
+  }
+
+  .note-month{
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 492px) {
+  header {
+    padding: 1.5em 1.8em;
+    font-size: 1em;
+    margin-bottom: 3.175em;
+    border-radius: 0px 0px 30px 30px;
+  }
+
+  header ul {
+    display: flex;
+    justify-content: space-between;
+    width: 14.4em;
+  }
+  .todo input {
+    margin: 0;
+  }
+
+  .bookmark, .rotate-left {
+    margin-right: 1em;
+  }
+
+  .options-buttons button {
+    margin: 1em 2.2em;
+  }
+
+  .todo label {
+    cursor: pointer;
+  }
+
+  .category-buttons {
+    width: 80%;
+    display: flex;
+    align-items: baseline;
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+  .category-button {
+    font-weight: 300;
+    font-size: 1em;
+    margin-right: 1.5em;
+    margin-bottom: 1em;
+    white-space: nowrap;
+  }
+  .category-buttons::-webkit-scrollbar {
+    width: 0.1em;
+    height: 0.5em; /* ширина scrollbar */
+  }
+  .category-buttons::-webkit-scrollbar-track {
+    background: transparent; /* цвет дорожки */
+  }
+  .category-buttons::-webkit-scrollbar-thumb {
+    background-color: rgba(87, 87, 235, 0.06); /* цвет плашки */
+    border-radius: 20px; /* закругления плашки */
+  }
+  .category-options-line {
+    margin-bottom: 0.6em;
+  }
+
+  .category-options-line h3 {
+    font-size: 1.325em;
+  }
+
+  .bookmark, .rotate-left {
+    margin-right: 0.7em;
+    margin-left: 0;
+  }
+
+  .options-buttons {
+    top: 75%;
+    right: 3%;
+    padding: 0.5em;
+    border-radius: 25px 0px 25px 25px;
+    font-size: 1em;
+  }
+  .warning-text {
+    font-size: 1em;
+  }
+  .modal-content .modal-bookmark {
+    margin-top: 5.5em;
+    right: 7%;
+  }
+  .note-month{
+    font-size: 1.325em;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .modal-content {
+    padding: 1.4375em;
+    width: 24em;
+  }
+
+  .modal-content:not(.note-modal) textarea {
+    width: 20em;
+    padding: 4px;
+    font-size: 0.95em;
+  }
+  .modal-content h3 {
+    font-size: 1em;
+  }
+
+  .modal-content .add-modal-button {
+    font-size: 0.95em;
+  }
+
+  .modal-content .modal-bookmark {
+    margin-top: 5.5em;
+    right: 12%;
+  }
+
+  .answer-buttons button:first-of-type,
+  .answer-buttons button:last-of-type {
+    font-size: 0.95em;
+  }
+  .modal-content .modal-xmark {
+    position: fixed;
+    top: 0;
+    margin-top: 1.6em;
+    right: 6%;
+    width: 1.2em;
+    height: 1.2em;
+  }
+  .modal-content:not(.note-modal) textarea {
+    width: 22em;
+    padding: 5px;
+    font-size: 0.95em;
+  }
+  .note-modal input,
+  .note-modal textarea {
+    width: 22em;
+    font-size: 0.95em;
+  }
+  .category-options-line {
+    margin-bottom: 0.6em;
+  }
+
+  .category-options-line h3 {
+    font-size: 1.25em;
+  }
+
+  .bookmark, .rotate-left {
+    margin-right: 0.7em;
+    margin-left: 0;
+  }
+
+  .options-buttons {
+    top: 75%;
+    right: 3%;
+    padding: 0.4em;
+    border-radius: 22px 0px 22px 22px;
+    font-size: 0.95em;
+  }
+  .warning-text {
+    font-size: 0.95em;
+  }
+  .modal-content .modal-bookmark {
+    margin-top: 5em;
+    right: 7%;
+  }
+
+  .note-month{
+    margin-bottom: 0.8em;
+    font-size: 1.25em;
+  }
+}
+
+@media screen and (max-width: 392px) {
+  .modal-content {
+    padding: 1.2375em;
+    width: 20em;
+  }
+
+  .modal-content:not(.note-modal) textarea {
+    width: 17.5em;
+    padding: 4px;
+    font-size: 0.95em;
+  }
+  .modal-content h3 {
+    font-size: 1em;
+  }
+
+  .modal-content .add-modal-button {
+    font-size: 0.95em;
+  }
+
+  .modal-content .modal-bookmark {
+    margin-top: 5.5em;
+    right: 12%;
+  }
+  .modal-content:not(.note-modal) textarea {
+    width: 17.5em;
+    padding: 5px;
+    font-size: 0.95em;
+  }
+  .note-modal input,
+  .note-modal textarea {
+    width: 17.5em;
+    font-size: 0.95em;
+  }
+  .answer-buttons button:first-of-type,
+  .answer-buttons button:last-of-type {
+    font-size: 0.95em;
+  }
+  .modal-content .modal-xmark {
+    position: fixed;
+    top: 0;
+    margin-top: 1.3em;
+    right: 5%;
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  .modal-warning-text {
+    text-align: center;
+    width: 16em;
+    font-size: 0.95em;
+  }
+
+  .options-buttons {
+    top: 75%;
+    right: 3%;
+    padding: 0.3em;
+    border-radius: 20px 0px 20px 20px;
+    font-size: 0.95em;
+  }
+
+  .warning-text {
+    font-size: 0.95em;
+  }
+
+  .modal-content .modal-bookmark {
+    margin-top: 4.9em;
+    right: 9%;
+    width: 1.2em;
+    height: 1.2em;
+  }
+}
