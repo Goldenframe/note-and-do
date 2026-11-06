@@ -9,7 +9,6 @@ type TodoCategory = 'Все' | 'Избранное' | 'Не выполнено' 
 
 export const TodoWrapper: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<TodoCategory>('Все');
-  const [switchImportantButton, setSwitchImportantButton] = useState('Отметить все "Избранное"');
 
   const {
     todos,
@@ -27,6 +26,11 @@ export const TodoWrapper: React.FC = () => {
     completeAllTodos,
     switchAllImportance
   } = useTodos();
+
+  const allImportant = todos.length > 0 && todos.every(todo => todo.isImportant);
+  const switchImportantButton = allImportant
+    ? 'Снять метки "Избранное"'
+    : 'Отметить все "Избранное"';
 
   const {
     showModal,
@@ -116,23 +120,14 @@ export const TodoWrapper: React.FC = () => {
       'Невозможно отметить задачи',
       'Вы не можете поставить метки, так как у вас нет ни одной задачи'
     )) {
-      const makeImportant = switchImportantButton === 'Отметить все "Избранное"';
-      openTodoModal('switchImportance', undefined, makeImportant);
+      openTodoModal('switchImportance', undefined, !allImportant);
     }
-  }, [todos, switchImportantButton, validateAction, openTodoModal]);
+  }, [todos, allImportant, validateAction, openTodoModal]);
 
   const handleShowOptions = useCallback(() => {
     setShowOptions(prev => !prev);
     setTimeout(() => setShowOptions(false), 5000);
   }, [setShowOptions]);
-
-  const handleSwitchAllImportance = useCallback((makeImportant: boolean) => {
-    switchAllImportance(makeImportant);
-    setSwitchImportantButton(makeImportant
-      ? 'Снять метки "Избранное"'
-      : 'Отметить все "Избранное"'
-    );
-  }, [switchAllImportance]);
 
   const todosCount = useMemo(() => {
     switch (selectedCategory) {
@@ -218,7 +213,7 @@ export const TodoWrapper: React.FC = () => {
           onRestoreAllTodos={restoreAllTodos}
           onDeleteAllPermanently={deleteAllPermanently}
           onCompleteAllTodos={completeAllTodos}
-          onSwitchAllImportance={handleSwitchAllImportance}
+          onSwitchAllImportance={switchAllImportance}
           onCloseModal={closeModal}
         />
       )}
