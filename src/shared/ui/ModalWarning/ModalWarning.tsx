@@ -12,13 +12,13 @@ export const ModalWarning: React.FC<ModalWarningProps> = ({
   reason,
   onClose
 }) => {
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Escape' || e.key === 'Enter') {
-      onClose();
-    }
-  };
-
   useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' || e.key === 'Enter') {
+        onClose();
+      }
+    };
+
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
